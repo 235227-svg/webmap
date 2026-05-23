@@ -58,7 +58,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[31.809757119827353,35.38962181791826],[31.92087867006581,35.55726102557661]]);
+        }).fitBounds([[31.840311711242723,35.42806208622012],[31.877299507203542,35.48393079414247]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -917,7 +917,7 @@
                         <td colspan="2"><strong>text</strong><br />' + (feature.properties['text'] !== null ? autolinker.link(String(feature.properties['text']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td class="visible-with-data" id="photo" colspan="2"><strong>photo</strong><br />' + (feature.properties['photo'] !== null ? autolinker.link(String(feature.properties['photo']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="photo" colspan="2"><strong>photo</strong><br />' + (feature.properties['photo'] !== null ? '<img src="images/' + String(feature.properties['photo']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
